@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signup from "../pages/Signup";
 import Preview from "../pages/Preview";
 import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const Routing = () => {
 
@@ -11,13 +11,19 @@ const Routing = () => {
         password: ''
     });
 
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Signup formData={formData} setFormData={setFormData}/>
+        },
+        {
+            path: '/preview',
+            element: <Preview formData={formData} setFormData={setFormData}/>
+        }
+    ]);
+
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Signup formData={formData} setFormData={setFormData}/>} />
-                <Route path="/preview" element={<Preview formData={formData} setFormData={setFormData}/>} />
-            </Routes>
-        </Router>
+        <RouterProvider router={router}/>
     )
 }
 

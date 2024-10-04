@@ -70,7 +70,6 @@ const SignupForm = ({formData, setFormData}) => {
             errors.password = 'Password must contain: Minimum 8 characters, 1 uppercase character, 1 lowercase character, at least 1 digit, at least 1 special character'
         }
         return errors;
-        
     }
 
     return (
